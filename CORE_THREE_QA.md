@@ -1,5 +1,7 @@
 # Core Three QA
 
+> Superseded by `QA_REHEARSAL_REPORT.md` on 2026-05-02. This file is retained as historical draft QA context.
+
 Date: 2026-04-28
 
 Scope: browser QA for the first three draft scenes only. No new artwork, scene graph edits, asset manifest edits, or feature work were performed during this pass.
@@ -74,6 +76,6 @@ Scope: browser QA for the first three draft scenes only. No new artwork, scene g
 
 ## Recommendation
 
-Do not mark the core three scenes as `reviewed` yet. They are solid `draft` assets and ready for a focused hotspot / panel calibration pass.
+Historical recommendation from 2026-04-28: do not mark the core three scenes as `reviewed` yet. This recommendation is superseded by the final 2026-05-02 rehearsal pass in `QA_REHEARSAL_REPORT.md`.
 
 Recommended next step: enter hotspot coordinate calibration for the three core scenes. The panel-layer split is now in the right direction, so the next meaningful improvement is coordinate tuning plus one more hover/click pass in a real pointer-driven browser session.

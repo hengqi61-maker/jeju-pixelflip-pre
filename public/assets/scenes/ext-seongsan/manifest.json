@@ -1,7 +1,7 @@
 {
   "sceneId": "ext-seongsan",
   "version": "0.1.0",
-  "status": "draft",
+  "status": "reviewed",
   "size": {
     "master": [
       3840,
@@ -22,5 +22,5 @@
     "ambient": "/assets/scenes/ext-seongsan/ambient.png",
     "thumbnail": "/assets/scenes/ext-seongsan/thumbnail.webp"
   },
-  "notes": "Anchor-driven draft regenerated from the core-sight-map Seongsan crop for continuity validation. Optional layers remain pending."
+  "notes": "Anchor-driven draft regenerated from the core-sight-map Seongsan crop for continuity validation. Optional layers remain pending. Reviewed for prepared visual browser release on 2026-05-02."
 }

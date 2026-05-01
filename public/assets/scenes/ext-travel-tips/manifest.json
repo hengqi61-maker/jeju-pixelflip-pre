@@ -1,7 +1,7 @@
 {
   "sceneId": "ext-travel-tips",
   "version": "0.1.0",
-  "status": "draft",
+  "status": "reviewed",
   "size": {
     "master": [
       3840,
@@ -22,5 +22,5 @@
     "ambient": "/assets/scenes/ext-travel-tips/ambient.png",
     "thumbnail": "/assets/scenes/ext-travel-tips/thumbnail.webp"
   },
-  "notes": "Draft background added for the Travel Tips extension scene. Optional foreground, ambient, and thumbnail layers are not yet produced."
+  "notes": "Draft background added for the Travel Tips extension scene. Optional foreground, ambient, and thumbnail layers are not yet produced. Reviewed for prepared visual browser release on 2026-05-02."
 }

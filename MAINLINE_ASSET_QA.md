@@ -1,5 +1,7 @@
 # Mainline Asset QA
 
+> Superseded by `QA_REHEARSAL_REPORT.md` on 2026-05-02. This file is retained as historical draft QA context.
+
 Date: 2026-04-28
 
 Scope: draft browser QA for newly integrated mainline backgrounds `recommended-routes` and `travel-advice-summary`.
@@ -58,4 +60,4 @@ Scope: draft browser QA for newly integrated mainline backgrounds `recommended-r
 
 ## Recommendation
 
-Keep both scenes as `draft`. The hotspot calibration pass is complete enough for rehearsal, but neither scene should be marked `reviewed` until Presenter View and click-through rehearsal are complete.
+Historical recommendation from 2026-04-28: keep both scenes as `draft`. This recommendation is superseded by the final 2026-05-02 rehearsal pass in `QA_REHEARSAL_REPORT.md`.

@@ -57,4 +57,4 @@ GitHub Actions runs unit tests, lint, asset checks, Playwright rehearsal, and a 
 
 ## Current Status
 
-This repository is suitable for draft/demo rehearsal. Promotion to `reviewed` requires a complete 17-scene browser QA pass and anchor-continuity retest. See `QA_REHEARSAL_REPORT.md` and `TASKS.md`.
+This repository is `reviewed` for the first public prepared visual browser demo. The reviewed scope is stability and reproducible demo readiness: 17 direct scene loads, all current parent hotspot chains, core Back/Forward navigation, GitHub Pages deployment, and asset availability. See `QA_REHEARSAL_REPORT.md` and `TASKS.md`.

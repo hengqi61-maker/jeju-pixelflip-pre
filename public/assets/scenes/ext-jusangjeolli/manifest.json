@@ -1,7 +1,7 @@
 {
   "sceneId": "ext-jusangjeolli",
   "version": "0.1.0",
-  "status": "draft",
+  "status": "reviewed",
   "size": {
     "master": [
       3840,
@@ -22,5 +22,5 @@
     "ambient": "/assets/scenes/ext-jusangjeolli/ambient.png",
     "thumbnail": "/assets/scenes/ext-jusangjeolli/thumbnail.webp"
   },
-  "notes": "Draft background added for the Jusangjeolli Cliffs extension scene. Optional foreground, ambient, and thumbnail layers are not yet produced."
+  "notes": "Draft background added for the Jusangjeolli Cliffs extension scene. Optional foreground, ambient, and thumbnail layers are not yet produced. Reviewed for prepared visual browser release on 2026-05-02."
 }

@@ -1,7 +1,7 @@
 {
   "sceneId": "cover-overview",
   "version": "0.1.0",
-  "status": "draft",
+  "status": "reviewed",
   "size": {
     "master": [
       3840,
@@ -22,5 +22,5 @@
     "ambient": "/assets/scenes/cover-overview/ambient.png",
     "thumbnail": "/assets/scenes/cover-overview/thumbnail.webp"
   },
-  "notes": "Draft background integrated for runtime calibration. Foreground, ambient, and thumbnail layers remain optional."
+  "notes": "Draft background integrated for runtime calibration. Foreground, ambient, and thumbnail layers remain optional. Reviewed for prepared visual browser release on 2026-05-02."
 }

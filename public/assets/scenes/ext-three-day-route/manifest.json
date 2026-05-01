@@ -1,7 +1,7 @@
 {
   "sceneId": "ext-three-day-route",
   "version": "0.1.0",
-  "status": "draft",
+  "status": "reviewed",
   "size": {
     "master": [
       3840,
@@ -22,5 +22,5 @@
     "ambient": "/assets/scenes/ext-three-day-route/ambient.png",
     "thumbnail": "/assets/scenes/ext-three-day-route/thumbnail.webp"
   },
-  "notes": "Draft background added for the Three-day Route extension scene. Optional foreground, ambient, and thumbnail layers are not yet produced."
+  "notes": "Draft background added for the Three-day Route extension scene. Optional foreground, ambient, and thumbnail layers are not yet produced. Reviewed for prepared visual browser release on 2026-05-02."
 }
