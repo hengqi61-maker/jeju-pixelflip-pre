@@ -1,0 +1,26 @@
+{
+  "sceneId": "core-sight-map",
+  "version": "0.1.0",
+  "status": "draft",
+  "size": {
+    "master": [
+      3840,
+      2160
+    ],
+    "display": [
+      1920,
+      1080
+    ],
+    "thumbnail": [
+      480,
+      270
+    ]
+  },
+  "layers": {
+    "background": "/assets/scenes/core-sight-map/background.webp",
+    "foreground": "/assets/scenes/core-sight-map/foreground.png",
+    "ambient": "/assets/scenes/core-sight-map/ambient.png",
+    "thumbnail": "/assets/scenes/core-sight-map/thumbnail.webp"
+  },
+  "notes": "Draft background integrated for runtime calibration. Foreground, ambient, and thumbnail layers remain optional."
+}

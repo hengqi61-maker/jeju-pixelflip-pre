@@ -1,0 +1,26 @@
+{
+  "sceneId": "ext-jeju-culture",
+  "version": "0.1.0",
+  "status": "draft",
+  "size": {
+    "master": [
+      3840,
+      2160
+    ],
+    "display": [
+      1920,
+      1080
+    ],
+    "thumbnail": [
+      480,
+      270
+    ]
+  },
+  "layers": {
+    "background": "/assets/scenes/ext-jeju-culture/background.webp",
+    "foreground": "/assets/scenes/ext-jeju-culture/foreground.png",
+    "ambient": "/assets/scenes/ext-jeju-culture/ambient.png",
+    "thumbnail": "/assets/scenes/ext-jeju-culture/thumbnail.webp"
+  },
+  "notes": "Draft background added for the Jeju Culture extension scene. Optional foreground, ambient, and thumbnail layers are not yet produced."
+}

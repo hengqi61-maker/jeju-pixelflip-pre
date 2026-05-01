@@ -1,0 +1,26 @@
+{
+  "sceneId": "ext-udo",
+  "version": "0.1.0",
+  "status": "draft",
+  "size": {
+    "master": [
+      3840,
+      2160
+    ],
+    "display": [
+      1920,
+      1080
+    ],
+    "thumbnail": [
+      480,
+      270
+    ]
+  },
+  "layers": {
+    "background": "/assets/scenes/ext-udo/background.webp",
+    "foreground": "/assets/scenes/ext-udo/foreground.png",
+    "ambient": "/assets/scenes/ext-udo/ambient.png",
+    "thumbnail": "/assets/scenes/ext-udo/thumbnail.webp"
+  },
+  "notes": "Draft background added for the Udo extension scene. Optional foreground, ambient, and thumbnail layers are not yet produced."
+}

@@ -1,0 +1,56 @@
+:root {
+  --bg-top: #0e2835;
+  --bg-bottom: #18475a;
+  --text-primary: #f3eedf;
+  --text-secondary: rgba(243, 238, 223, 0.8);
+  --text-muted: rgba(243, 238, 223, 0.56);
+  --surface-border: rgba(255, 255, 255, 0.1);
+  --page-font: 'Avenir Next', 'Trebuchet MS', 'Segoe UI', sans-serif;
+  --heading-font: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua',
+    Georgia, serif;
+  --mono-font: 'SFMono-Regular', 'Cascadia Code', 'Liberation Mono', monospace;
+
+  color: var(--text-primary);
+  background:
+    radial-gradient(circle at top, rgba(97, 164, 178, 0.25), transparent 28%),
+    linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+  font-family: var(--page-font);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--heading-font);
+  letter-spacing: -0.03em;
+}
+
+p,
+li {
+  font-family: var(--page-font);
+}

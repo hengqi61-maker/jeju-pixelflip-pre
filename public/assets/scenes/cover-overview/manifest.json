@@ -1,0 +1,26 @@
+{
+  "sceneId": "cover-overview",
+  "version": "0.1.0",
+  "status": "draft",
+  "size": {
+    "master": [
+      3840,
+      2160
+    ],
+    "display": [
+      1920,
+      1080
+    ],
+    "thumbnail": [
+      480,
+      270
+    ]
+  },
+  "layers": {
+    "background": "/assets/scenes/cover-overview/background.webp",
+    "foreground": "/assets/scenes/cover-overview/foreground.png",
+    "ambient": "/assets/scenes/cover-overview/ambient.png",
+    "thumbnail": "/assets/scenes/cover-overview/thumbnail.webp"
+  },
+  "notes": "Draft background integrated for runtime calibration. Foreground, ambient, and thumbnail layers remain optional."
+}

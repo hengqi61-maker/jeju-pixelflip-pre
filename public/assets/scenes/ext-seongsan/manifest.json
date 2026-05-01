@@ -1,0 +1,26 @@
+{
+  "sceneId": "ext-seongsan",
+  "version": "0.1.0",
+  "status": "draft",
+  "size": {
+    "master": [
+      3840,
+      2160
+    ],
+    "display": [
+      1920,
+      1080
+    ],
+    "thumbnail": [
+      480,
+      270
+    ]
+  },
+  "layers": {
+    "background": "/assets/scenes/ext-seongsan/background.webp",
+    "foreground": "/assets/scenes/ext-seongsan/foreground.png",
+    "ambient": "/assets/scenes/ext-seongsan/ambient.png",
+    "thumbnail": "/assets/scenes/ext-seongsan/thumbnail.webp"
+  },
+  "notes": "Anchor-driven draft regenerated from the core-sight-map Seongsan crop for continuity validation. Optional layers remain pending."
+}

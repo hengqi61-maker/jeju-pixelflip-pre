@@ -1,0 +1,375 @@
+{
+  "project": {
+    "id": "jeju-pixelflip-pre",
+    "title": "Jeju PixelFlip Pre",
+    "version": "0.1.0-draft",
+    "description": "Prepared explorable pixel-art presentation prototype about Jeju Island."
+  },
+  "pages": [
+    {
+      "id": "cover-overview",
+      "title": "Jeju Overview",
+      "type": "mainline",
+      "path": "/overview",
+      "summary": "Opening 16:9 pixel-art atlas view of Jeju Island introducing the island as an explorable presentation world.",
+      "speakerNotes": "Frame Jeju as a compact but varied island. Explain that the audience will navigate prepared visual chapters through clickable regions rather than a standard linear slide stack.",
+      "backgroundImage": "placeholder/overview-world.png",
+      "hotspots": [
+        {
+          "id": "hs-hallasan-overview",
+          "label": "Hallasan",
+          "targetPageId": "ext-hallasan",
+          "region": "central-mountain"
+        },
+        {
+          "id": "hs-seongsan-overview",
+          "label": "Seongsan Ilchulbong",
+          "targetPageId": "ext-seongsan",
+          "region": "east-volcanic-cone"
+        },
+        {
+          "id": "hs-udo-overview",
+          "label": "Udo",
+          "targetPageId": "ext-udo",
+          "region": "northeast-satellite-island"
+        },
+        {
+          "id": "hs-waterfalls-overview",
+          "label": "Waterfalls",
+          "targetPageId": "ext-waterfalls",
+          "region": "south-scenic-waterfall-zone"
+        },
+        {
+          "id": "hs-market-overview",
+          "label": "Dongmun Market",
+          "targetPageId": "ext-dongmun-market",
+          "region": "jeju-city-market-zone"
+        },
+        {
+          "id": "hs-food-overview",
+          "label": "Food",
+          "targetPageId": "ext-food",
+          "region": "food-culture-cluster"
+        }
+      ],
+      "extensions": [
+        "ext-hallasan",
+        "ext-seongsan",
+        "ext-udo",
+        "ext-waterfalls",
+        "ext-dongmun-market",
+        "ext-food"
+      ]
+    },
+    {
+      "id": "spatial-structure",
+      "title": "Spatial Structure",
+      "type": "mainline",
+      "path": "/spatial-structure",
+      "summary": "A geography-led page showing how Hallasan, coastal edges, east-west differences, and ring-road logic shape movement across Jeju.",
+      "speakerNotes": "Explain the mountain-centered structure of the island and why itinerary planning works best when the audience understands region clustering and travel time.",
+      "backgroundImage": "placeholder/spatial-structure-map.png",
+      "hotspots": [
+        {
+          "id": "hs-hallasan-structure",
+          "label": "Central Mountain Core",
+          "targetPageId": "ext-hallasan",
+          "region": "central-core"
+        },
+        {
+          "id": "hs-east-structure",
+          "label": "East Coast",
+          "targetPageId": "ext-seongsan",
+          "region": "eastern-coast-zone"
+        },
+        {
+          "id": "hs-udo-structure",
+          "label": "Udo Link",
+          "targetPageId": "ext-udo",
+          "region": "satellite-island-link"
+        },
+        {
+          "id": "hs-cliffs-structure",
+          "label": "Geological Coast",
+          "targetPageId": "ext-jusangjeolli",
+          "region": "geological-coast-zone"
+        },
+        {
+          "id": "hs-waterfalls-structure",
+          "label": "South Scenic Belt",
+          "targetPageId": "ext-waterfalls",
+          "region": "southern-scenic-belt"
+        }
+      ],
+      "extensions": [
+        "ext-hallasan",
+        "ext-seongsan",
+        "ext-udo",
+        "ext-jusangjeolli",
+        "ext-waterfalls"
+      ]
+    },
+    {
+      "id": "core-sight-map",
+      "title": "Core Sight Map",
+      "type": "mainline",
+      "path": "/core-sights",
+      "summary": "Clustered visual map of Jeju's signature landscape, culture, and food experiences.",
+      "speakerNotes": "Use this page as the main branch hub. Show that Jeju's value comes from the network between scenic landmarks, food zones, and cultural textures.",
+      "backgroundImage": "placeholder/core-sights-map.png",
+      "hotspots": [
+        {
+          "id": "hs-hallasan-core",
+          "label": "Hallasan",
+          "targetPageId": "ext-hallasan",
+          "region": "hallasan-marker"
+        },
+        {
+          "id": "hs-seongsan-core",
+          "label": "Seongsan Ilchulbong",
+          "targetPageId": "ext-seongsan",
+          "region": "seongsan-marker"
+        },
+        {
+          "id": "hs-udo-core",
+          "label": "Udo",
+          "targetPageId": "ext-udo",
+          "region": "udo-marker"
+        },
+        {
+          "id": "hs-jusangjeolli-core",
+          "label": "Jusangjeolli Cliffs",
+          "targetPageId": "ext-jusangjeolli",
+          "region": "cliffs-marker"
+        },
+        {
+          "id": "hs-waterfalls-core",
+          "label": "Waterfalls",
+          "targetPageId": "ext-waterfalls",
+          "region": "waterfalls-marker"
+        },
+        {
+          "id": "hs-culture-core",
+          "label": "Jeju Culture",
+          "targetPageId": "ext-jeju-culture",
+          "region": "culture-marker"
+        },
+        {
+          "id": "hs-food-core",
+          "label": "Food",
+          "targetPageId": "ext-food",
+          "region": "food-marker"
+        },
+        {
+          "id": "hs-market-core",
+          "label": "Dongmun Market",
+          "targetPageId": "ext-dongmun-market",
+          "region": "market-marker"
+        }
+      ],
+      "extensions": [
+        "ext-hallasan",
+        "ext-seongsan",
+        "ext-udo",
+        "ext-jusangjeolli",
+        "ext-waterfalls",
+        "ext-jeju-culture",
+        "ext-food",
+        "ext-dongmun-market"
+      ]
+    },
+    {
+      "id": "recommended-routes",
+      "title": "Recommended Routes",
+      "type": "mainline",
+      "path": "/routes",
+      "summary": "Main route-planning page that turns spatial understanding into itinerary logic.",
+      "speakerNotes": "Explain that Jeju rewards route design over checklist accumulation. Use this page to compare short-stay efficiency and slower multi-day exploration.",
+      "backgroundImage": "placeholder/recommended-routes.png",
+      "hotspots": [
+        {
+          "id": "hs-one-day-route",
+          "label": "One-day Route",
+          "targetPageId": "ext-one-day-route",
+          "region": "one-day-path"
+        },
+        {
+          "id": "hs-three-day-route",
+          "label": "Three-day Route",
+          "targetPageId": "ext-three-day-route",
+          "region": "three-day-path"
+        },
+        {
+          "id": "hs-best-season-route",
+          "label": "Best Seasons",
+          "targetPageId": "ext-best-seasons",
+          "region": "seasonal-planning-note"
+        }
+      ],
+      "extensions": [
+        "ext-one-day-route",
+        "ext-three-day-route",
+        "ext-best-seasons"
+      ]
+    },
+    {
+      "id": "travel-advice-summary",
+      "title": "Travel Advice Summary",
+      "type": "mainline",
+      "path": "/travel-advice",
+      "summary": "Closing mainline page summarizing seasonality, pacing, logistics, and practical expectations.",
+      "speakerNotes": "Convert scenic inspiration into practical judgment. Close on the idea that Jeju becomes better when travelers match season, route, and pace thoughtfully.",
+      "backgroundImage": "placeholder/travel-advice-summary.png",
+      "hotspots": [
+        {
+          "id": "hs-best-seasons-advice",
+          "label": "Best Seasons",
+          "targetPageId": "ext-best-seasons",
+          "region": "seasonal-guidance"
+        },
+        {
+          "id": "hs-travel-tips-advice",
+          "label": "Travel Tips",
+          "targetPageId": "ext-travel-tips",
+          "region": "logistics-guidance"
+        }
+      ],
+      "extensions": [
+        "ext-best-seasons",
+        "ext-travel-tips"
+      ]
+    },
+    {
+      "id": "ext-hallasan",
+      "title": "Hallasan",
+      "type": "extension",
+      "path": "/explore/hallasan",
+      "summary": "Deep dive into Hallasan as Jeju's central mountain anchor, trail world, and spatial reference point.",
+      "speakerNotes": "Describe Hallasan as the island's center in both map logic and emotional identity. Emphasize changing elevation, weather, and commitment level.",
+      "backgroundImage": "placeholder/hallasan-detail.png",
+      "hotspots": [],
+      "extensions": []
+    },
+    {
+      "id": "ext-seongsan",
+      "title": "Seongsan Ilchulbong",
+      "type": "extension",
+      "path": "/explore/seongsan-ilchulbong",
+      "summary": "Deep dive into Jeju's iconic eastern volcanic cone and sunrise-facing coastal landmark.",
+      "speakerNotes": "Use the page to explain why Seongsan is so visually memorable and why it works as a strong eastern itinerary anchor.",
+      "backgroundImage": "placeholder/seongsan-detail.png",
+      "hotspots": [],
+      "extensions": []
+    },
+    {
+      "id": "ext-udo",
+      "title": "Udo",
+      "type": "extension",
+      "path": "/explore/udo",
+      "summary": "Deep dive into Udo as a smaller satellite-island experience defined by cycling, coastlines, and slower pacing.",
+      "speakerNotes": "Position Udo as a rhythm change that complements main-island sightseeing instead of competing with it.",
+      "backgroundImage": "placeholder/udo-detail.png",
+      "hotspots": [],
+      "extensions": []
+    },
+    {
+      "id": "ext-jusangjeolli",
+      "title": "Jusangjeolli Cliffs",
+      "type": "extension",
+      "path": "/explore/jusangjeolli-cliffs",
+      "summary": "Deep dive into the basalt-column cliff formations that expose Jeju's volcanic geology at the coast.",
+      "speakerNotes": "Focus on shape, texture, and geology. This page should make volcanic history legible through visual structure.",
+      "backgroundImage": "placeholder/jusangjeolli-detail.png",
+      "hotspots": [],
+      "extensions": []
+    },
+    {
+      "id": "ext-waterfalls",
+      "title": "Waterfalls",
+      "type": "extension",
+      "path": "/explore/waterfalls",
+      "summary": "Deep dive into Jeju's waterfall scenery, subtropical vegetation, and softer water-rich landscapes.",
+      "speakerNotes": "Use the page to show that Jeju is not only rocky coast and volcanic mass, but also lush and dramatic in a different register.",
+      "backgroundImage": "placeholder/waterfalls-detail.png",
+      "hotspots": [],
+      "extensions": []
+    },
+    {
+      "id": "ext-jeju-culture",
+      "title": "Jeju Culture",
+      "type": "extension",
+      "path": "/explore/jeju-culture",
+      "summary": "Deep dive into cultural symbols, local materials, island identity, and recognizable everyday textures.",
+      "speakerNotes": "Keep the talk anchored in local symbols and environment rather than turning this page into a history lecture.",
+      "backgroundImage": "placeholder/jeju-culture-detail.png",
+      "hotspots": [],
+      "extensions": []
+    },
+    {
+      "id": "ext-food",
+      "title": "Food",
+      "type": "extension",
+      "path": "/explore/food",
+      "summary": "Deep dive into Jeju food experience through black pork, seafood, citrus, and dining atmosphere.",
+      "speakerNotes": "Present food as place experience and sensory memory, not as a long catalog of dishes.",
+      "backgroundImage": "placeholder/food-detail.png",
+      "hotspots": [],
+      "extensions": []
+    },
+    {
+      "id": "ext-dongmun-market",
+      "title": "Dongmun Market",
+      "type": "extension",
+      "path": "/explore/dongmun-market",
+      "summary": "Deep dive into Dongmun Market as a dense urban node of food, produce, and local travel energy.",
+      "speakerNotes": "Use this page to contrast the island's natural scenery with a highly social, local, and practical urban scene.",
+      "backgroundImage": "placeholder/dongmun-market-detail.png",
+      "hotspots": [],
+      "extensions": []
+    },
+    {
+      "id": "ext-one-day-route",
+      "title": "One-day Route",
+      "type": "extension",
+      "path": "/explore/routes/one-day",
+      "summary": "A disciplined one-day Jeju route scenario focused on a coherent geographic slice and manageable pace.",
+      "speakerNotes": "Be explicit about what is included and what is sacrificed. The value is clarity and enjoyment, not maximum stop count.",
+      "backgroundImage": "placeholder/one-day-route-detail.png",
+      "hotspots": [],
+      "extensions": []
+    },
+    {
+      "id": "ext-three-day-route",
+      "title": "Three-day Route",
+      "type": "extension",
+      "path": "/explore/routes/three-day",
+      "summary": "A balanced three-day itinerary combining scenic landmarks, food, culture, and travel pacing.",
+      "speakerNotes": "Show how three days allows a better mix of east, central, and urban/coastal experiences without constant rushing.",
+      "backgroundImage": "placeholder/three-day-route-detail.png",
+      "hotspots": [],
+      "extensions": []
+    },
+    {
+      "id": "ext-best-seasons",
+      "title": "Best Seasons",
+      "type": "extension",
+      "path": "/explore/best-seasons",
+      "summary": "Seasonal guidance page showing how bloom, greenery, wind, weather, and crowd patterns change the Jeju experience.",
+      "speakerNotes": "Avoid claiming one perfect season. Explain that the best time depends on bloom, hiking, scenery preference, and tolerance for wind or crowds.",
+      "backgroundImage": "placeholder/best-seasons-detail.png",
+      "hotspots": [],
+      "extensions": []
+    },
+    {
+      "id": "ext-travel-tips",
+      "title": "Travel Tips",
+      "type": "extension",
+      "path": "/explore/travel-tips",
+      "summary": "Practical advice page covering transport assumptions, weather, booking, walking expectations, and pacing.",
+      "speakerNotes": "Keep this page useful and concise. It should make the audience feel prepared rather than overloaded.",
+      "backgroundImage": "placeholder/travel-tips-detail.png",
+      "hotspots": [],
+      "extensions": []
+    }
+  ]
+}

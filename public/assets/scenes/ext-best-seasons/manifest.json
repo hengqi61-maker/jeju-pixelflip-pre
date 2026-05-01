@@ -1,0 +1,26 @@
+{
+  "sceneId": "ext-best-seasons",
+  "version": "0.1.0",
+  "status": "draft",
+  "size": {
+    "master": [
+      3840,
+      2160
+    ],
+    "display": [
+      1920,
+      1080
+    ],
+    "thumbnail": [
+      480,
+      270
+    ]
+  },
+  "layers": {
+    "background": "/assets/scenes/ext-best-seasons/background.webp",
+    "foreground": "/assets/scenes/ext-best-seasons/foreground.png",
+    "ambient": "/assets/scenes/ext-best-seasons/ambient.png",
+    "thumbnail": "/assets/scenes/ext-best-seasons/thumbnail.webp"
+  },
+  "notes": "Draft background added for the Best Seasons extension scene. Optional foreground, ambient, and thumbnail layers are not yet produced."
+}

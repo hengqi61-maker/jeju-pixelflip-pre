@@ -1,0 +1,26 @@
+{
+  "sceneId": "ext-food",
+  "version": "0.1.0",
+  "status": "draft",
+  "size": {
+    "master": [
+      3840,
+      2160
+    ],
+    "display": [
+      1920,
+      1080
+    ],
+    "thumbnail": [
+      480,
+      270
+    ]
+  },
+  "layers": {
+    "background": "/assets/scenes/ext-food/background.webp",
+    "foreground": "/assets/scenes/ext-food/foreground.png",
+    "ambient": "/assets/scenes/ext-food/ambient.png",
+    "thumbnail": "/assets/scenes/ext-food/thumbnail.webp"
+  },
+  "notes": "Anchor-driven draft regenerated from the core-sight-map food crop for continuity validation. Optional layers remain pending."
+}
