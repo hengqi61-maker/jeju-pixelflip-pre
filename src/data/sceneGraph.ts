@@ -2,6 +2,233 @@ import type { Hotspot, SceneGraph, SceneNode, SafeZone } from '../types/scene'
 import { getSceneAssetPaths } from '../utils/sceneAssets'
 import { parseSceneGraph } from '../utils/sceneGraphValidation'
 
+const officialGuidebookUrl =
+  'https://www.visitjeju.net/pdf/Official%20Jeju%20Tourism%20Guidebook_en.pdf'
+const visitJejuBaseUrl = 'https://www.visitjeju.net/en'
+const lastTravelGuideVerification = '2026-05-02'
+
+const travelGuides: Partial<
+  Record<string, NonNullable<SceneNode['content']['travelGuide']>>
+> = {
+  'ext-hallasan': {
+    status: 'official-reference',
+    lastVerified: lastTravelGuideVerification,
+    sourceUrls: [
+      'https://www.visitjeju.net/en/detail/view?contentsid=CONT_000000000500685',
+      'https://visithalla.jeju.go.kr/main/main.do?language=en',
+      officialGuidebookUrl,
+    ],
+    fee: '入山本身通常不以门票作为核心成本；停车、交通、装备和补给才是主要预算项。出行前以 Hallasan 官方预约系统为准。',
+    reservation:
+      '热门登山线路可能需要通过 Hallasan 官方系统预约，尤其是旺季、周末和清晨时段。',
+    hours:
+      '登山有入山/下撤时间限制，且会随季节和天气调整；不要只按地图距离估算。',
+    transport:
+      '自驾最灵活，但停车和清晨出发压力较高；公交可行但要提前核对首末班和登山口。',
+    duration: '半日到一整天，取决于选择短线步道还是完整登顶线路。',
+    cautions: [
+      '天气变化快，山上风、雨、温差会显著影响体验。',
+      '登山线路不是普通景点散步，鞋、补水和返程时间要提前计划。',
+      '如官方因天气关闭或限制入山，应直接调整为低海拔景点。',
+    ],
+    bestFor: '适合想理解济州地理核心、愿意为徒步和天气留余量的旅行者。',
+  },
+  'ext-seongsan': {
+    status: 'official-reference',
+    lastVerified: lastTravelGuideVerification,
+    sourceUrls: [
+      'https://www.visitjeju.net/en/detail/view?contentsid=CONT_000000000500349',
+      officialGuidebookUrl,
+    ],
+    fee: '可能收取景区入场费，具体 KRW 价格按官方页面或现场公告为准。',
+    reservation: '一般按景区现场游览逻辑安排；团队、日出时段或旺季建议提前确认开放状态。',
+    hours:
+      '日出/清晨是经典时间，但开放时间和登顶入口管理会受季节、天气影响。',
+    transport:
+      '自驾或东部公交均可安排；若同日去 Udo，建议把 Seongsan 与 ferry 时间放在同一区域规划。',
+    duration: '约 1.5-2.5 小时；如果看日出或拍摄停留，预留更久。',
+    cautions: [
+      '登顶有台阶和坡度，不适合完全当作平地观景点。',
+      '风大时体感会明显下降，海边拍摄注意保暖和防滑。',
+      '旺季停车和入口排队会拉长实际停留时间。',
+    ],
+    bestFor: '适合第一次来济州、想要一个辨识度极高的东部地标。',
+  },
+  'ext-udo': {
+    status: 'official-reference',
+    lastVerified: lastTravelGuideVerification,
+    sourceUrls: [
+      'https://www.visitjeju.net/en/detail/view?contentsid=CONT_000000000500477',
+      officialGuidebookUrl,
+    ],
+    fee: '核心费用来自往返 ferry、岛上交通和租赁；具体 KRW 费用按码头/官方公告为准。',
+    reservation: '通常按 ferry 班次和现场购票安排；天气差或海况变化时要优先确认船班。',
+    hours:
+      'Udo 行程受 ferry 首末班约束，不建议把返程压到最后一班。',
+    transport:
+      '从 Seongsan 区域衔接最顺；岛上可按体力和天气选择步行、巴士、自行车或电动车类交通。',
+    duration: '半日最稳妥；赶时间可短停，但会失去 Udo 慢节奏优势。',
+    cautions: [
+      '强风、雨天和海况会直接影响船班与骑行体验。',
+      '岛上环线看似轻松，但停拍和排队会消耗时间。',
+      '不要把 Udo 塞进已经很满的东部一日线。',
+    ],
+    bestFor: '适合想把东部行程放慢、体验小岛环线和海岸节奏的人。',
+  },
+  'ext-jusangjeolli': {
+    status: 'official-reference',
+    lastVerified: lastTravelGuideVerification,
+    sourceUrls: [
+      `${visitJejuBaseUrl}/search?keyword=Jusangjeolli`,
+      officialGuidebookUrl,
+    ],
+    fee: '观景区可能收取入场费，具体 KRW 价格以官方页面或现场公告为准。',
+    reservation: '通常不作为预约型景点安排；团队或旺季停车仍建议预留弹性。',
+    hours: '按景区开放时间进入，强风、暴雨或海况差时观景体验会明显下降。',
+    transport:
+      '更适合和中文旅游区、南部海岸、瀑布类景点组合；自驾衔接效率较高。',
+    duration: '约 40-90 分钟，主要取决于拍照、栈道拥挤和停车情况。',
+    cautions: [
+      '不要期待长时间深度游，它更像高辨识度地质观景点。',
+      '海风强时注意帽子、相机和儿童安全。',
+      '阴雨天玄武岩质感更强，但视野和拍摄舒适度下降。',
+    ],
+    bestFor: '适合想快速理解济州火山海岸质感、并和南部行程组合的人。',
+  },
+  'ext-waterfalls': {
+    status: 'official-reference',
+    lastVerified: lastTravelGuideVerification,
+    sourceUrls: [
+      `${visitJejuBaseUrl}/search?keyword=waterfall`,
+      officialGuidebookUrl,
+    ],
+    fee: '不同瀑布景点收费不同，具体 KRW 门票以对应官方页面或现场公告为准。',
+    reservation: '通常按现场游览安排；雨季、节假日和旅行团高峰会影响动线。',
+    hours: '按各瀑布景区开放时间进入；雨后水量好但地面湿滑。',
+    transport:
+      '适合与西归浦、中文旅游区、柱状节理带一起安排，减少跨岛移动。',
+    duration: '单个瀑布约 45-90 分钟；多个瀑布组合建议预留半天。',
+    cautions: [
+      '不同瀑布步行强度差异明显，带老人儿童时要确认台阶和坡道。',
+      '雨天画面更有氛围，但防滑和防水比拍照更重要。',
+      '不要把多个相似瀑布连续塞满，容易审美疲劳。',
+    ],
+    bestFor: '适合给火山/海岸行程增加阴凉、绿色和水景对比。',
+  },
+  'ext-jeju-culture': {
+    status: 'editorial-guidance',
+    lastVerified: lastTravelGuideVerification,
+    sourceUrls: [officialGuidebookUrl],
+    fee: '文化村、博物馆、民俗点收费差异较大；具体 KRW 价格按目标点官方公告确认。',
+    reservation: '普通文化散步点通常不需要预约；体验课、讲解、博物馆活动需要提前确认。',
+    hours: '室内馆和体验项目更依赖开放日历；村落/街区类点位也要尊重居民生活时间。',
+    transport:
+      '适合插入东部、南部或市区路线之间，不建议为了单一文化点跨岛折返。',
+    duration: '约 1-2 小时；如果含博物馆或体验活动，预留 2-3 小时。',
+    cautions: [
+      '不要只把石像和村落当拍照背景，注意动线礼貌和居民空间。',
+      '体验型活动受语言、时间和预约限制影响更大。',
+      '文化点更适合作为节奏调整，不一定要追求打卡数量。',
+    ],
+    bestFor: '适合想让济州不只是自然景观，也有材料、风、石墙和生活纹理的人。',
+  },
+  'ext-food': {
+    status: 'editorial-guidance',
+    lastVerified: lastTravelGuideVerification,
+    sourceUrls: [officialGuidebookUrl],
+    fee: '餐饮预算取决于黑猪、海鲜、套餐和市场小吃选择；以店铺菜单 KRW 标价为准。',
+    reservation: '热门黑猪/海鲜店晚餐可能需要排队或预约，建议避开最拥挤饭点。',
+    hours: '餐厅、市场、夜市时段差异很大；不要假设全天都有完整菜单。',
+    transport:
+      '晚餐建议优先选住宿或当日路线附近，避免饭后长距离跨岛返程。',
+    duration: '正餐约 1-1.5 小时；市场小吃可 45-90 分钟。',
+    cautions: [
+      '热门店排队不一定等于最适合你的路线，先看位置和当天体力。',
+      '海鲜和烧烤类价格差异大，点单前确认份量和计价方式。',
+      '把食物作为路线收尾更舒服，不要让餐厅位置破坏整天动线。',
+    ],
+    bestFor: '适合把济州记忆从风景延伸到黑猪、海鲜、柑橘和市场氛围。',
+  },
+  'ext-dongmun-market': {
+    status: 'official-reference',
+    lastVerified: lastTravelGuideVerification,
+    sourceUrls: [
+      `${visitJejuBaseUrl}/search?keyword=Dongmun%20Market`,
+      officialGuidebookUrl,
+    ],
+    fee: '市场本身通常不按景区门票理解，消费按摊位/店铺 KRW 标价为准。',
+    reservation: '不需要景点预约；夜市、人流高峰和热门摊位需要排队预期。',
+    hours: '市场、夜市和不同摊位营业时间不同，晚到不代表所有店都还开。',
+    transport:
+      '更适合作为济州市区、机场前后或住宿附近的轻量节点；停车可能比想象更花时间。',
+    duration: '约 1-2 小时；只买伴手礼可更短，吃夜市可更久。',
+    cautions: [
+      '高峰时段通道拥挤，行李箱会明显降低移动效率。',
+      '海鲜、熟食、伴手礼分区节奏不同，先确定目标再逛。',
+      '作为最后一站时要给机场/还车留出缓冲。',
+    ],
+    bestFor: '适合补充城市烟火气、伴手礼和轻松吃逛。',
+  },
+  'ext-one-day-route': {
+    status: 'editorial-guidance',
+    lastVerified: lastTravelGuideVerification,
+    sourceUrls: [officialGuidebookUrl],
+    transport:
+      '默认自驾或包车最稳；公共交通一日线需要显著减少停靠点。',
+    duration: '完整一天，建议只选择一个区域主轴，例如东部或南部。',
+    cautions: [
+      '不要同时追求 Hallasan、Udo、南部瀑布和市场，转场会吃掉体验。',
+      '把天气备选放在同一区域内，避免临时跨岛。',
+      '最后一站离住宿/机场越近，整天越稳定。',
+    ],
+    bestFor: '适合短暂停留、转机延伸或第一次来济州但时间有限的人。',
+  },
+  'ext-three-day-route': {
+    status: 'editorial-guidance',
+    lastVerified: lastTravelGuideVerification,
+    sourceUrls: [officialGuidebookUrl],
+    transport:
+      '默认自驾最顺；如果不用车，建议围绕住宿分区减少每日跨岛。',
+    duration: '3 天 2 晚或 4 天 3 晚都可使用此节奏，关键是每天只做一到两个区域。',
+    cautions: [
+      '第一天不要排太满，航班、取车、天气都会影响开局。',
+      '把东部、南部、市区/食物分天处理，比每天绕岛更舒服。',
+      '保留一段可替换时间，应对风雨或临时关闭。',
+    ],
+    bestFor: '适合第一次系统体验济州，希望兼顾地标、自然、食物和节奏的人。',
+  },
+  'ext-best-seasons': {
+    status: 'editorial-guidance',
+    lastVerified: lastTravelGuideVerification,
+    sourceUrls: [officialGuidebookUrl],
+    hours: '季节选择不是开放时间问题，而是天气、风、花期、海况和人流的组合。',
+    transport:
+      '旺季自驾和住宿更需要提前规划；冬季和风雨天更依赖备用室内/低海拔方案。',
+    duration: '用于决定出行月份和路线预期，建议在订机票住宿前先看。',
+    cautions: [
+      '春秋更均衡，但也更容易遇到热门日期和价格上浮。',
+      '夏季适合海岸氛围，但热、雨和台风风险需要备用方案。',
+      '冬季更安静，但风和关闭/缩短时段会影响体验。',
+    ],
+    bestFor: '适合还没定日期、需要在天气、人流、预算和活动之间取舍的人。',
+  },
+  'ext-travel-tips': {
+    status: 'editorial-guidance',
+    lastVerified: lastTravelGuideVerification,
+    sourceUrls: [officialGuidebookUrl],
+    transport:
+      '济州行程质量高度依赖交通假设；自驾、包车、公交会直接改变可行景点数量。',
+    duration: '作为全程规划检查清单使用，每天出发前也可以快速复核。',
+    cautions: [
+      '地图距离不等于实际体验时间，停车、步行、排队和天气都会放大耗时。',
+      '风雨天优先保护舒适度，不要硬追海边和高处景点。',
+      '带老人儿童时，把厕所、坡道、台阶和休息点纳入路线。',
+      '热门餐厅、Udo 船班、Hallasan 预约都不适合临时赌运气。',
+    ],
+    bestFor: '适合把视觉路线转成真实行程前的最后一次风险检查。',
+  },
+}
+
 const defaultSafeZones: SafeZone[] = [
   {
     id: 'breadcrumb-top',
@@ -159,6 +386,7 @@ function createScene(config: {
         config.type === 'extension'
           ? `We are entering ${config.title} as a prepared branch from the wider Jeju atlas.`
           : `This scene advances the mainline atlas from ${config.title}.`,
+      travelGuide: travelGuides[config.id],
     },
     hotspots: config.hotspots ?? [],
     navigation: {

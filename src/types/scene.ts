@@ -114,6 +114,20 @@ export type SceneContent = {
   presenterNotes: string
   talkingPoints: string[]
   transitionLine?: string
+  travelGuide?: SceneTravelGuide
+}
+
+export type SceneTravelGuide = {
+  status: 'official-reference' | 'editorial-guidance'
+  lastVerified: string
+  sourceUrls: string[]
+  fee?: string
+  reservation?: string
+  hours?: string
+  transport?: string
+  duration?: string
+  cautions?: string[]
+  bestFor?: string
 }
 
 export type SceneNavigation = {

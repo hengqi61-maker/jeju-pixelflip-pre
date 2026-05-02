@@ -175,3 +175,25 @@ test.describe('parent hotspot continuity rehearsal', () => {
     })
   }
 })
+
+test.describe('travel guide panel rehearsal', () => {
+  for (const scene of [
+    children.seongsan,
+    children.hallasan,
+    children.udo,
+    children.bestSeasons,
+  ]) {
+    test(`${scene.id} exposes compact Chinese travel guide`, async ({ page }) => {
+      await page.goto(`/?scene=${scene.id}&qa=1`)
+      await expectScene(page, scene)
+      await page.locator('.content-panel').click()
+
+      await expect(page.getByText('Travel Guide / 实用攻略')).toBeVisible()
+      await expect(page.getByText('2026-05-02')).toBeVisible()
+      await expect(page.getByText('出行前以官方页面为准')).toBeVisible()
+      await expect(page.getByRole('link', { name: '来源 1' })).toBeVisible()
+      await expect(page.locator('.content-panel')).toHaveCSS('overflow-y', 'auto')
+      await expect(page).toHaveURL(new RegExp(`[?&]scene=${scene.id}(?:&|$)`))
+    })
+  }
+})

@@ -315,7 +315,7 @@
   box-sizing: border-box;
   width: min(30%, 340px);
   max-height: calc(100% - 152px);
-  overflow: hidden;
+  overflow: hidden auto;
   padding: clamp(12px, 1.35vw, 16px);
   border-radius: 22px;
   background: rgba(249, 245, 231, 0.84);
@@ -433,6 +433,90 @@
   margin: 0;
   padding-left: 12px;
   border-left: 3px solid rgba(255, 159, 74, 0.65);
+}
+
+.travel-guide {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(29, 57, 66, 0.12);
+}
+
+.travel-guide-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.travel-guide-heading h2,
+.travel-guide-cautions h3 {
+  margin: 0;
+  color: #5b6d6b;
+  font-size: clamp(0.68rem, 0.82vw, 0.88rem);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.travel-guide-heading span {
+  flex: 0 0 auto;
+  color: rgba(70, 88, 92, 0.72);
+  font-family: var(--mono-font);
+  font-size: 0.68rem;
+}
+
+.travel-guide dl,
+.travel-guide ul {
+  margin: 8px 0 0;
+}
+
+.travel-guide dl {
+  display: grid;
+  gap: 7px;
+}
+
+.travel-guide-item {
+  display: grid;
+  gap: 2px;
+}
+
+.travel-guide dt {
+  color: rgba(70, 88, 92, 0.86);
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.travel-guide dd,
+.travel-guide li {
+  margin: 0;
+  color: #2f424a;
+  font-size: clamp(0.72rem, 0.86vw, 0.84rem);
+  line-height: 1.42;
+}
+
+.travel-guide-cautions {
+  margin-top: 10px;
+}
+
+.travel-guide-cautions ul {
+  padding-left: 16px;
+}
+
+.travel-guide-sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  margin-top: 10px;
+  color: rgba(70, 88, 92, 0.76);
+  font-size: 0.68rem;
+}
+
+.travel-guide-sources a {
+  color: #1c5f77;
+  text-decoration: none;
+}
+
+.travel-guide-sources a:hover {
+  text-decoration: underline;
 }
 
 .hotspot-layer {

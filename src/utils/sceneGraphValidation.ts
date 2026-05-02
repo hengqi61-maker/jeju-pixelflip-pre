@@ -10,6 +10,7 @@ import type {
   SceneNode,
   SceneProject,
   SceneTransition,
+  SceneTravelGuide,
   SceneVisual,
   SafeZone,
 } from '../types/scene'
@@ -94,12 +95,26 @@ const visualSchema: z.ZodType<SceneVisual> = z.object({
   visualIntent: z.string().min(1),
 })
 
+const travelGuideSchema: z.ZodType<SceneTravelGuide> = z.object({
+  status: z.enum(['official-reference', 'editorial-guidance']),
+  lastVerified: z.string().min(1),
+  sourceUrls: z.array(z.string().url()).min(1),
+  fee: z.string().min(1).optional(),
+  reservation: z.string().min(1).optional(),
+  hours: z.string().min(1).optional(),
+  transport: z.string().min(1).optional(),
+  duration: z.string().min(1).optional(),
+  cautions: z.array(z.string().min(1)).optional(),
+  bestFor: z.string().min(1).optional(),
+})
+
 const contentSchema = z.object({
   audienceTitle: z.string().min(1),
   audienceSummary: z.string().min(1),
   presenterNotes: z.string().min(1),
   talkingPoints: z.array(z.string().min(1)).min(1),
   transitionLine: z.string().optional(),
+  travelGuide: travelGuideSchema.optional(),
 })
 
 const navigationSchema: z.ZodType<SceneNavigation> = z.object({
@@ -215,6 +230,14 @@ function validateSceneGraphReferences(graph: SceneGraph) {
 
     if (scene.type === 'extension' && !scene.parentSceneId) {
       throw new Error(`Extension scene missing parentSceneId: ${scene.id}`)
+    }
+
+    if (scene.type === 'extension' && !scene.content.travelGuide) {
+      throw new Error(`Extension scene missing travelGuide: ${scene.id}`)
+    }
+
+    if (scene.type === 'mainline' && scene.content.travelGuide) {
+      throw new Error(`Mainline scene should not define travelGuide: ${scene.id}`)
     }
 
     if (scene.parentAnchor && scene.type !== 'extension') {
